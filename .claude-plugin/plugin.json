@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "string-web-access",
+  "displayName": "String Web Access",
+  "version": "1.0.0",
+  "description": "Fetch, search and map any website as clean Markdown — through proxies that handle anti-bot protection, CAPTCHAs and JavaScript rendering.",
+  "author": {
+    "name": "String",
+    "url": "https://usestring.ai"
+  },
+  "homepage": "https://docs.usestring.ai",
+  "repository": "https://github.com/usestring/string-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "web-scraping",
+    "search",
+    "crawling",
+    "markdown",
+    "anti-bot",
+    "mcp"
+  ],
+  "mcpServers": "./.mcp.json",
+  "skills": [
+    "./skills/string-web-access",
+    "./skills/string-fetch",
+    "./skills/string-search",
+    "./skills/string-sitemap"
+  ]
+}

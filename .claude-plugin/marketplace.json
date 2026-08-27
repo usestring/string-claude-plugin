@@ -1,0 +1,21 @@
+{
+  "name": "string",
+  "description": "String's official plugins for Claude Code and Cowork \u2014 reliable access to the live web.",
+  "owner": {
+    "name": "String",
+    "url": "https://usestring.ai"
+  },
+  "plugins": [
+    {
+      "name": "string-web-access",
+      "source": "./",
+      "description": "Fetch, search and map any website as clean Markdown \u2014 through proxies that handle anti-bot protection, CAPTCHAs and JavaScript rendering.",
+      "skills": [
+        "./skills/string-web-access",
+        "./skills/string-fetch",
+        "./skills/string-search",
+        "./skills/string-sitemap"
+      ]
+    }
+  ]
+}
