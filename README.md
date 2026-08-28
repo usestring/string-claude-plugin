@@ -3,7 +3,7 @@
 Fetch, search and map any website as clean, LLM-ready Markdown — through rotating residential
 proxies that handle anti-bot protection, CAPTCHAs, rate limits and JavaScript rendering.
 
-A plain `curl` to most commercial sites returns a block page. This plugin gives Claude three tools
+A plain `curl` to most commercial sites returns a block page. This plugin gives Claude four tools
 that don't, plus the judgment to know which one to reach for.
 
 ## Install
@@ -32,22 +32,24 @@ Check it works:
 | Tool | Use it for |
 | --- | --- |
 | `web_access_fetch` | One URL → Markdown, raw HTML, or a JSON envelope with the destination's status and headers. Custom headers, country-specific proxy routing, and a real browser you can click, scroll and type in before capture. |
+| `web_access_request` | A POST, PUT or PATCH with a body → the destination's response. For endpoints that take a payload rather than pages you read: a JSON API, a GraphQL endpoint, a search backend. |
 | `web_access_search` | A question with no URL → structured results carrying position, title, URL, snippet and display URL. |
 | `web_access_sitemap` | A whole site → every URL, with fetch status, depth and parent. Quote first, approve the cost, then poll and page through results. |
 
 ### Skills
 
-Three map onto the tools. The fourth is the one that matters.
+Four map onto the tools. The fifth is the one that matters.
 
 - **`string-web-access`** — the escalation rule (**search → fetch → browser**), what to change when a
   fetch returns a block page or an empty body, and how to keep cost and latency down. Claude loads
   it before any multi-step web task. It carries reference material on browser actions, output
   formats and search technique.
-- **`string-fetch`**, **`string-search`**, **`string-sitemap`** — per-tool depth, loaded on demand.
+- **`string-fetch`**, **`string-request`**, **`string-search`**, **`string-sitemap`** — per-tool depth,
+  loaded on demand.
 
 ### Commands
 
-- **`/string-setup`** — connectivity check: confirms the key is set and all three tools respond.
+- **`/string-setup`** — connectivity check: confirms the key is set and all four tools respond.
 - **`/web-research <topic>`** — research a topic on the live web and report with citations,
   following the escalation rule rather than fetching everything in sight.
 
@@ -60,6 +62,7 @@ Start at the cheapest step that can answer the question.
 | A question, no URL | `web_access_search` |
 | A URL | `web_access_fetch` |
 | A site, need every page | `web_access_sitemap` |
+| An endpoint to write to | `web_access_request` |
 | A page that needs clicking, typing or logging in | `web_access_fetch` with `actions` |
 
 Most work never leaves `fetch`. A browser session takes tens of seconds and holds a real browser, so

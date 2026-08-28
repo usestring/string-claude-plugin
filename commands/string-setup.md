@@ -1,6 +1,6 @@
 ---
 name: string-setup
-description: "Check that String Web Access is connected and all three tools respond. Usage: /string-setup"
+description: "Check that String Web Access is connected and its read tools respond. Usage: /string-setup"
 ---
 
 # String Web Access setup check
