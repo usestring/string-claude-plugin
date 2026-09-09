@@ -15,7 +15,8 @@
         "./skills/string-fetch",
         "./skills/string-request",
         "./skills/string-search",
-        "./skills/string-sitemap"
+        "./skills/string-sitemap",
+        "./skills/string-report"
       ]
     }
   ]
