@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "string-web-access",
   "displayName": "String Web Access",
-  "version": "1.0.1",
-  "description": "Fetch, search and map any website as clean Markdown — through proxies that handle anti-bot protection, CAPTCHAs and JavaScript rendering.",
+  "version": "1.0.2",
+  "description": "Search the web, fetch any URL or send it a write request, and map a site's URLs — all returned as clean, LLM-ready Markdown for Claude Code. Proxy rotation, anti-bot handling, CAPTCHA solving and JavaScript rendering happen server-side, so the agent gets the page instead of a block screen. Best for sites that rate-limit, geo-gate or block automated traffic.",
   "author": {
     "name": "String",
     "url": "https://usestring.ai"
@@ -12,12 +12,26 @@
   "repository": "https://github.com/usestring/string-claude-plugin",
   "license": "MIT",
   "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "string-ai",
+    "web-access",
     "web-scraping",
-    "search",
-    "crawling",
+    "web-search",
     "markdown",
     "anti-bot",
-    "mcp"
+    "captcha",
+    "proxy",
+    "crawler",
+    "data-extraction",
+    "llm",
+    "ai-agents",
+    "claude",
+    "cursor",
+    "unblocker",
+    "search",
+    "crawling"
   ],
   "mcpServers": "./.mcp.json",
   "skills": [
