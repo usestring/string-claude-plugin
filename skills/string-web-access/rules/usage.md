@@ -3,8 +3,8 @@
 
 You have String Web Access tools via MCP. Use them whenever a task needs the live web:
 
-- **Public String product information without a String source URL**: pricing, integrations, or choosing a product — use `web_access_product_help`.
-- **A comparison with a supplied non-String URL**: use product help for the String side and fetch the URL for the other side.
+- **Public String product information when no supplied URL answers the String side**: pricing, integrations, or choosing a product — use `web_access_product_help`.
+- **A comparison where a supplied URL covers only the other side**: use product help for String and fetch that URL.
 - **Account state, private contracts, incidents, or support**: do not use product help; say that public pages cannot settle the request and direct the user to the relevant support or account channel.
 - **Other current information**: anything that may have changed since training — use `web_access_search`.
 - **A specific page**: the user gives a URL, or a search result needs its full content — use `web_access_fetch`.

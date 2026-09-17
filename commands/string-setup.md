@@ -14,8 +14,9 @@ Verify the connection using the **string-web-access** skill's guidance.
 4. Ask product help what String Web Access does and confirm it returns documentation excerpts with source URLs.
 5. Report which tools responded:
    - All three fail → the key or connection is likely invalid or unset.
-   - Product help succeeds while fetch and search fail → authentication worked; investigate Web
-     Access access, credits, or service health instead.
+   - Product help succeeds while fetch and search fail → the MCP connection works, but product
+     help does not validate a raw API key. Check key validity, then Web Access access, credits, or
+     service health.
    - Report a product-help failure separately and every other partial failure individually.
    Do not retry failures in a loop.
 
