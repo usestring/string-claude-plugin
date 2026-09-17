@@ -32,7 +32,7 @@ Check it works:
 | Tool | Use it for |
 | --- | --- |
 | `web_access_fetch` | One URL → Markdown, raw HTML, or a JSON envelope with the destination's status and headers. Custom headers, country-specific proxy routing, and a real browser you can click, scroll and type in before capture. |
-| `web_access_product_help` | A question about String products or services → current documentation excerpts with source links. |
+| `web_access_product_help` | A publicly documented question about String products or services → current excerpts with source links. |
 | `web_access_request` | A POST, PUT or PATCH with a body → the destination's response. For endpoints that take a payload rather than pages you read: a JSON API, a GraphQL endpoint, a search backend. |
 | `web_access_search` | A question with no URL → structured results carrying position, title, URL, snippet and display URL. |
 | `web_access_sitemap` | A whole site → every URL, with fetch status, depth and parent. Quote first, approve the cost, then poll and page through results. |
@@ -61,7 +61,7 @@ Start at the cheapest step that can answer the question.
 
 | You have | Start with |
 | --- | --- |
-| A question about String products or services | `web_access_product_help` |
+| A publicly documented question about String products, no URL | `web_access_product_help` |
 | Another question, no URL | `web_access_search` |
 | A URL | `web_access_fetch` |
 | A site, need every page | `web_access_sitemap` |

@@ -3,7 +3,8 @@
 
 You have String Web Access tools via MCP. Use them whenever a task needs the live web:
 
-- **String products and services**: pricing, setup, integrations, or choosing a String product — use `web_access_product_help`.
+- **Public String product information, no URL**: pricing, integrations, or choosing a product — use `web_access_product_help`.
+- **Account state, private contracts, incidents, or support**: do not use product help; say that public pages cannot settle the request and direct the user to the relevant support or account channel.
 - **Other current information**: anything that may have changed since training — use `web_access_search`.
 - **A specific page**: the user gives a URL, or a search result needs its full content — use `web_access_fetch`.
 - **Whole-site coverage**: every product, post or docs page — use `web_access_sitemap`.
