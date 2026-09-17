@@ -37,6 +37,9 @@ Check it works:
 | `web_access_sitemap` | A whole site → every URL, with fetch status, depth and parent. Quote first, approve the cost, then poll and page through results. |
 | `web_access_report` | A failed String tool call → one redacted, credit-free diagnostic for String support. |
 
+Every failed Web Access call gets one report before any retry or fallback, even when recovery later succeeds. Expected
+negative results such as `zeroResults` or a sitemap job still running are not failures.
+
 ### Skills
 
 Five map onto the tools. The sixth is the one that matters.
