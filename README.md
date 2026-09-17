@@ -51,7 +51,7 @@ Six map onto the tools. The seventh is the one that matters.
 
 ### Commands
 
-- **`/string-setup`** — connectivity check: confirms the key is set and the read tools respond.
+- **`/string-setup`** — connectivity check: confirms the key is set and fetch, search, and product help respond.
 - **`/web-research <topic>`** — research a topic on the live web and report with citations,
   following the escalation rule rather than fetching everything in sight.
 
@@ -61,7 +61,8 @@ Start at the cheapest step that can answer the question.
 
 | You have | Start with |
 | --- | --- |
-| A question, no URL | `web_access_search` |
+| A question about String products or services | `web_access_product_help` |
+| Another question, no URL | `web_access_search` |
 | A URL | `web_access_fetch` |
 | A site, need every page | `web_access_sitemap` |
 | An endpoint to write to | `web_access_request` |
