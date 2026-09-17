@@ -61,7 +61,8 @@ Start at the cheapest step that can answer the question.
 
 | You have | Start with |
 | --- | --- |
-| A publicly documented question about String products, no URL | `web_access_product_help` |
+| A publicly documented String product question without a String source URL | `web_access_product_help` |
+| A comparison between String and a supplied non-String URL | `web_access_product_help` + `web_access_fetch` |
 | Another question, no URL | `web_access_search` |
 | A URL | `web_access_fetch` |
 | A site, need every page | `web_access_sitemap` |
