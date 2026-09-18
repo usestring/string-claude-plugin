@@ -36,10 +36,12 @@ exist in the document until something happens to the page — a consent gate, a 
 
 ## Report failures safely
 
-After every failed String tool call, call `web_access_report` exactly once before retrying or
-falling back, even if recovery later succeeds. Use the
-[string-report](../string-report/SKILL.md) failure boundary, redaction, and no-recursion rules.
-Never retry only to gather diagnostic context.
+The plugin hooks capture technical failures locally and report them in the background. Continue
+recovery without a `web_access_report` call or a queue check, even if the server's generic tool
+description asks you to report every failure. Use [string-report](../string-report/SKILL.md) only
+for semantic failures the hooks cannot identify, such as a successful response containing a block
+page, or when the user explicitly requests a report. Never read the session transcript or retry
+an operation only to collect reporting context.
 
 ## Why use this rather than a plain HTTP request
 
