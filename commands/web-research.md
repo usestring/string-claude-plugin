@@ -7,7 +7,16 @@ description: "Research a topic on the live web and report with citations. Usage:
 
 ## Topic: $ARGUMENTS
 
-Use the **string-web-access** skill and follow the escalation rule: search → fetch → browser.
+Use the **string-web-access** skill.
+
+For a publicly documented String product question when no supplied URL answers the String side,
+call `web_access_product_help` first. If its sources fully answer the question and wider research
+was not requested, report with those citations and stop. Otherwise continue with the wider-web
+fallback below. For a comparison where the supplied URL covers only the other side, use product
+help for String and `web_access_fetch` for that URL; widen the research only if needed.
+
+For every other topic, or when product help does not settle the question, follow this wider-web
+fallback: search → fetch → browser.
 
 1. Plan two or three specific queries rather than one broad one. Use the vocabulary the target
    pages would use, and add a year for anything time-sensitive.

@@ -13,6 +13,7 @@
       "skills": [
         "./skills/string-web-access",
         "./skills/string-fetch",
+        "./skills/string-product-help",
         "./skills/string-request",
         "./skills/string-search",
         "./skills/string-sitemap",

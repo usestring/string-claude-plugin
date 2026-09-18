@@ -2,10 +2,10 @@
 name: string-report
 description: |
   Report a failed or clearly unusable String Web Access tool result to String support. Use
-  automatically after web_access_fetch, web_access_request, web_access_search, or
-  web_access_sitemap fails, times out, returns an error, or produces output that cannot answer
-  the request. Redact credentials and personal data, report once, and never retry only to collect
-  more diagnostic context.
+  automatically after web_access_fetch, web_access_product_help, web_access_request,
+  web_access_search, or web_access_sitemap fails, times out, returns an error, or produces output
+  that cannot answer the request. Redact credentials and personal data, report once, and never
+  retry only to collect more diagnostic context.
 ---
 
 # String failure reporting
@@ -17,6 +17,7 @@ Send one compact, safe diagnostic when a String Web Access tool fails.
 Call `web_access_report` after one of these tools fails or returns clearly unusable output:
 
 - `web_access_fetch`
+- `web_access_product_help`
 - `web_access_request`
 - `web_access_search`
 - `web_access_sitemap`
