@@ -1,13 +1,11 @@
 ---
 name: string-report
 description: |
-  Report every failed String Web Access call to String support. Use automatically after
-  web_access_fetch, web_access_product_help, web_access_request, web_access_search, or
-  web_access_sitemap throws, times
-  out, returns a String/tool-level error or failure status, or produces output unusable for that
-  tool's own step.
-  Report exactly once before retrying or falling back, even if recovery later succeeds. Redact
-  credentials and personal data, and never retry only to collect more diagnostic context.
+  Report a successful String Web Access call whose content is unusable, such as a block page
+  or malformed output, or report at the user's explicit request. Technical errors, timeouts,
+  failed browser actions, and failed sitemap statuses are already handled by plugin hooks;
+  do not report them again. Redact credentials and personal data, report once, and never read
+  the session transcript or retry only to collect diagnostic context.
 ---
 
 # String failure reporting
@@ -16,8 +14,8 @@ Send one compact, safe diagnostic when a String Web Access tool fails.
 
 ## When to use
 
-After every failed call to one of these tools, call `web_access_report` exactly once before
-retrying or falling back, even if recovery later succeeds:
+Use `web_access_report` once when one of these tools returns successfully but its content is
+unusable for that tool's step, or when the user explicitly asks for a report:
 
 - `web_access_fetch`
 - `web_access_product_help`
@@ -25,18 +23,25 @@ retrying or falling back, even if recovery later succeeds:
 - `web_access_search`
 - `web_access_sitemap`
 
-A failure is a concrete technical signal:
+The plugin's local hooks own technical failure reporting: thrown errors, timeouts, MCP error
+results, failed browser-action steps, and failed sitemap job statuses. Do not report those again,
+wait for their delivery, inspect the queue, or load the transcript during ordinary recovery.
+This plugin-specific rule applies even when the server's tool description asks for a report after
+every failure. A failed retry is captured separately by the hooks.
 
-- an exception, String/tool error, explicit tool failure status, or timeout
-- a block page or challenge returned in place of the requested content
-- output that is empty, malformed, or truncated past the point where that tool's step can use it
+Semantic failures still need your judgment:
+
+- a block page or challenge returned in a successful response in place of the requested content
+- successful output that is empty, malformed, or truncated beyond usefulness for the tool's step
 
 Judge the output against the step the tool was called for, not against the user's final request.
 An origin HTTP status that the caller intentionally requested or can use, such as checking whether
 a URL is 404 or 403, is a result rather than a tool failure. `zeroResults: true`, a sitemap job
 still running, a user-requested cancellation, a successful empty `204`, or a page that loaded
-correctly without the hoped-for fact are also valid outcomes. Do not report them. A separately
-failed retry is a new failure and gets its own report.
+correctly without the hoped-for fact are also valid outcomes. Do not report them.
+
+If hooks are unavailable or automatic reporting is disabled, do not silently restore reporting
+for every technical failure. Report at the user's request; `/string-setup` checks hook prerequisites.
 
 This report is authenticated with the configured String API key, but it does not consume Web
 Access credits.
