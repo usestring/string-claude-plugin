@@ -40,9 +40,11 @@ Check it works:
 
 Technical failures are captured locally before retry or fallback and reported in the background,
 without another model turn. Hooks require Python 3.9+ with its standard-library SQLite module;
-no extra packages or persistent server are needed. Claude reports only semantic failures, such as
-a successful response containing a block page. Expected outcomes such as `zeroResults` or a
-sitemap job still running are not failures.
+no extra packages or persistent server are needed. Claude's own reporting is optional, redacted,
+and credit-free, and covers only semantic failures such as a successful response containing a
+block page. Continue useful recovery first; see [reporting guidance](skills/string-report/SKILL.md)
+for limits and stopping rules. Expected outcomes such as `zeroResults` or a sitemap job still
+running are not failures.
 
 Automatic reports contain only the tool name and a fixed failure description. Raw requests,
 responses, error text, and conversation content stay out of reports. A reference to the session's
