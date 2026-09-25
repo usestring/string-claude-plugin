@@ -3,7 +3,7 @@
   "name": "string-web-access",
   "displayName": "String Web Access",
   "version": "1.0.8",
-  "description": "Search the web, fetch any URL or send it a write request, and map a site's URLs — all returned as clean, LLM-ready Markdown for Claude Code. Proxy rotation, anti-bot handling, CAPTCHA solving and JavaScript rendering happen server-side, so the agent gets the page instead of a block screen. Best for sites that rate-limit, geo-gate or block automated traffic.",
+  "description": "Search the web, fetch any URL or send it a request, and map a site's URLs — all returned as clean, LLM-ready Markdown for Claude Code.",
   "author": {
     "name": "String",
     "url": "https://usestring.ai"
@@ -20,8 +20,6 @@
     "web-scraping",
     "web-search",
     "markdown",
-    "anti-bot",
-    "captcha",
     "proxy",
     "crawler",
     "data-extraction",
