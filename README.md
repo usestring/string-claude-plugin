@@ -38,8 +38,18 @@ Check it works:
 | `web_access_sitemap` | A whole site → every URL, with fetch status, depth and parent. Quote first, approve the cost, then poll and page through results. |
 | `web_access_report` | A failed String tool call → one redacted, credit-free diagnostic for String support. |
 
-Failure reporting is optional, redacted, and credit-free. Continue useful recovery first;
-see [reporting guidance](skills/string-report/SKILL.md) for limits and stopping rules.
+Technical failures are captured locally before retry or fallback and reported in the background,
+without another model turn. Hooks require Python 3.9+ with its standard-library SQLite module;
+no extra packages or persistent server are needed. Claude's own reporting is optional, redacted,
+and credit-free, and covers only semantic failures such as a successful response containing a
+block page. Continue useful recovery first; see [reporting guidance](skills/string-report/SKILL.md)
+for limits and stopping rules. Expected outcomes such as `zeroResults` or a sitemap job still
+running are not failures.
+
+Automatic reports contain only the tool name and a fixed failure description. Raw requests,
+responses, error text, and conversation content stay out of reports. A reference to the session's
+JSONL transcript stays on your machine for investigation. See [failure reporting](docs/failure-reporting.md)
+for local inspection, delivery limits, and disabling automatic reporting.
 
 ### Skills
 
@@ -85,7 +95,8 @@ usual, because this plugin's whole job is bringing arbitrary third-party content
 ## Configuration
 
 The plugin ships an MCP server pointing at `https://mcp.usestring.ai/v1/mcp`, authenticated with
-`STRING_API_KEY` as a bearer token. Nothing else to configure.
+`STRING_API_KEY` as a bearer token. Automatic reporting uses the same key with
+`https://request.usestring.ai/v1/report`.
 
 ## Links
 

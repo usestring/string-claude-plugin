@@ -1,0 +1,40 @@
+{
+  "description": "Capture technical String failures locally and report them without a model turn.",
+  "hooks": {
+    "PostToolUseFailure": [
+      {
+        "matcher": "^mcp__(plugin_string-web-access_)?string-web-access__web_access_(fetch|product_help|request|search|sitemap)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/failure_reporting.py\" capture",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "^mcp__(plugin_string-web-access_)?string-web-access__web_access_(fetch|product_help|request|search|sitemap)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/failure_reporting.py\" capture",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/failure_reporting.py\" drain",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
