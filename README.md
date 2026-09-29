@@ -1,10 +1,10 @@
 # String Web Access for Claude Code
 
-Fetch, search and map any website as clean, LLM-ready Markdown — through rotating residential
-proxies that handle anti-bot protection, CAPTCHAs, rate limits and JavaScript rendering.
+Search the web, fetch any URL or send it a request, and map a site's URLs — all returned as
+clean, LLM-ready Markdown.
 
-A plain `curl` to most commercial sites returns a block page. This plugin gives Claude six tools
-through String's hosted MCP, plus the judgment to know which one to reach for.
+This plugin gives Claude six tools through String's hosted MCP, plus the judgment to know which
+one to reach for.
 
 ## Install
 

@@ -9,7 +9,7 @@
     {
       "name": "string-web-access",
       "source": "./",
-      "description": "Fetch, search and map any website as clean Markdown — through proxies that handle anti-bot protection, CAPTCHAs and JavaScript rendering.",
+      "description": "Search the web, fetch any URL or send it a request, and map a site's URLs — all returned as clean, LLM-ready Markdown for Claude Code.",
       "skills": [
         "./skills/string-web-access",
         "./skills/string-fetch",
