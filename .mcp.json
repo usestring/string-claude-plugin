@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "string-web-access": {
+      "type": "http",
       "url": "https://mcp.usestring.ai/v1/mcp",
       "headers": { "Authorization": "Bearer ${STRING_API_KEY}" }
     }
