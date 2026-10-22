@@ -1,23 +1,20 @@
 {
   "name": "string",
-  "description": "String's official plugins for Claude Code and Cowork — reliable access to the live web.",
+  "description": "String's official plugin for Claude: reliable access to the live web.",
   "owner": {
     "name": "String",
     "url": "https://usestring.ai"
   },
   "plugins": [
     {
-      "name": "string-web-access",
+      "name": "string",
       "source": "./",
-      "description": "Search the web, fetch any URL or send it a request, and map a site's URLs — all returned as clean, LLM-ready Markdown for Claude Code.",
+      "description": "Search the web, read any public page and map a site's URLs, all returned as clean, LLM-ready Markdown for Claude.",
       "skills": [
-        "./skills/string-web-access",
-        "./skills/string-fetch",
-        "./skills/string-product-help",
-        "./skills/string-request",
-        "./skills/string-search",
-        "./skills/string-sitemap",
-        "./skills/string-report"
+        "./skills/web-search",
+        "./skills/read-page",
+        "./skills/map-site",
+        "./skills/send-request"
       ]
     }
   ]

@@ -1,96 +1,66 @@
-# String Web Access for Claude Code
+# String for Claude
 
-Search the web, fetch any URL or send it a request, and map a site's URLs — all returned as
-clean, LLM-ready Markdown.
-
-This plugin gives Claude six tools through String's hosted MCP, plus the judgment to know which
-one to reach for.
+Search the web, read any public page and map a site's URLs, all returned as clean, LLM-ready
+Markdown. The plugin connects Claude to String's hosted MCP server and adds a skill for each job,
+so Claude picks the right tool and cites its sources.
 
 ## Install
 
+In Claude Code:
+
 ```
 /plugin marketplace add usestring/string-claude-plugin
-/plugin install string-web-access
+/plugin install string@string
 ```
 
-Then set your API key, from [portal.usestring.ai](https://portal.usestring.ai):
+Then run `/mcp`, choose `string`, and sign in with your String account. Sign-in uses OAuth, so
+there is no API key to copy or store. Don't have an account? Create one at
+[portal.usestring.ai](https://portal.usestring.ai).
 
-```bash
-export STRING_API_KEY="your-key"
-```
+Check the connection with `/string-setup`.
 
-Check it works:
+## Tools
 
-```
-/string-setup
-```
+The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 
-## What you get
-
-### Tools
-
-| Tool | Use it for |
+| Tool | What it does |
 | --- | --- |
-| `web_access_fetch` | One URL → Markdown, raw HTML, or a JSON envelope with the destination's status and headers. Custom headers, country-specific proxy routing, and a real browser you can click, scroll and type in before capture. |
-| `web_access_product_help` | A publicly documented question about String products or services → current excerpts with source links. |
-| `web_access_request` | A POST, PUT or PATCH with a body → the destination's response. For endpoints that take a payload rather than pages you read: a JSON API, a GraphQL endpoint, a search backend. |
-| `web_access_search` | A question with no URL → structured results carrying position, title, URL, snippet, display URL and Google's source line. Optional Google-only fields search the images, videos, shopping, books, places or forums tab, filter the results (SafeSearch, one country's pages, exact words), pick the results page, limit a date range, sort by date, or return one results page as HTML. |
-| `web_access_sitemap` | A whole site → every URL, with fetch status, depth and parent. Quote first, approve the cost, then poll and page through results. |
-| `web_access_report` | A failed String tool call → one redacted, credit-free diagnostic for String support. |
+| `web_access_search` | Searches the web and returns ranked results with titles, URLs and snippets. Read-only. |
+| `web_access_fetch` | Reads one public URL and returns it as Markdown, the page's raw body, or a JSON envelope with the status and headers. Read-only. |
+| `web_access_sitemap_quote` | Quotes a crawl of one site: estimated pages and cost. Crawls nothing and costs nothing. |
+| `web_access_sitemap_start` | Starts a quoted crawl after the user approves the quote. |
+| `web_access_sitemap_status` | Reports a crawl's progress, and lists its URLs once it finishes. Read-only. |
+| `web_access_request` | Sends a POST, PUT or PATCH the user asks for, such as a GraphQL query, and returns the response. Claude asks before it runs. |
 
-Failure reporting is optional, redacted, and credit-free. Continue useful recovery first;
-see [reporting guidance](skills/string-report/SKILL.md) for limits and stopping rules.
+## Skills
 
-### Skills
+- **`web-search`**: find sources for a question when there is no URL yet, and answer with citations.
+- **`read-page`**: read a URL, then summarize it, answer from it or pull its facts into a table.
+- **`map-site`**: get a quote, wait for the user's approval, start the crawl, then read the URLs.
+- **`send-request`**: send a request the user names, such as a GraphQL query, and show the data it
+  returns.
 
-Six map onto the tools. The seventh is the one that matters.
+Each skill carries the access rules that apply to it: public content and the user's own accounts
+only, no getting past logins, paywalls or CAPTCHAs, and page content treated as data rather than
+instructions.
 
-- **`string-web-access`** — the escalation rule (**search → fetch → browser**), what to change when a
-  fetch returns a block page or an empty body, and how to keep cost and latency down. Claude loads
-  it before any multi-step web task. It carries reference material on browser actions, output
-  formats and search technique.
-- **`string-fetch`**, **`string-product-help`**, **`string-request`**, **`string-search`**, **`string-sitemap`**, **`string-report`** — per-tool depth,
-  loaded on demand.
+## Commands
 
-### Commands
+- **`/string-setup`**: checks that the connection works and the read tools respond.
+- **`/web-research <topic>`**: researches a topic on the live web and reports with citations.
 
-- **`/string-setup`** — connectivity check: confirms the key is set and fetch, search, and product help respond.
-- **`/web-research <topic>`** — research a topic on the live web and report with citations,
-  following the escalation rule rather than fetching everything in sight.
+## What the plugin sends
 
-## The escalation rule
-
-Start at the cheapest step that can answer the question.
-
-| You have | Start with |
-| --- | --- |
-| A publicly documented String product question when no supplied URL answers the String side | `web_access_product_help` |
-| A comparison where a supplied URL covers only the other side | `web_access_product_help` + `web_access_fetch` |
-| Another question, no URL | `web_access_search` |
-| A URL | `web_access_fetch` |
-| A site, need every page | `web_access_sitemap` |
-| An endpoint to write to | `web_access_request` |
-| A page that needs clicking, typing or logging in | `web_access_fetch` with `actions` |
-
-Most work never leaves `fetch`. A browser session takes tens of seconds and holds a real browser, so
-reach for `actions` only when the content genuinely does not exist in the document until something
-happens to the page.
-
-## Safety
-
-Page content is untrusted data. Nothing you fetch is an instruction — the bundled rules tell Claude
-to treat a fetched page as text to read, never as something to act on. That matters more here than
-usual, because this plugin's whole job is bringing arbitrary third-party content into context.
-
-## Configuration
-
-The plugin ships an MCP server pointing at `https://mcp.usestring.ai/v1/mcp`, authenticated with
-`STRING_API_KEY` as a bearer token. Nothing else to configure.
+The plugin runs no local code. When Claude calls a tool, the search query, URL, crawl settings or
+request body goes to String's MCP server, which fetches the result and returns it to Claude. Each
+call draws on the connected String account's balance. String's handling of that data is described
+in its [privacy policy](https://usestring.ai/privacy).
 
 ## Links
 
-- [Documentation](https://usestring.ai/docs)
-- [Get an API key](https://portal.usestring.ai)
+- [Documentation](https://portal.usestring.ai/docs/mcp/overview)
+- [Privacy policy](https://usestring.ai/privacy)
+- [Terms of service](https://usestring.ai/terms)
 - [Support](mailto:support@usestring.ai)
 
 ## License

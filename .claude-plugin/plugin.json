@@ -1,42 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "string-web-access",
-  "displayName": "String Web Access",
-  "version": "1.0.14",
-  "description": "Search the web, fetch any URL or send it a request, and map a site's URLs — all returned as clean, LLM-ready Markdown for Claude Code.",
+  "name": "string",
+  "displayName": "String",
+  "version": "1.0.0",
+  "description": "Search the web, read any public page and map a site's URLs, all returned as clean, LLM-ready Markdown for Claude.",
   "author": {
     "name": "String",
     "url": "https://usestring.ai"
   },
-  "homepage": "https://docs.usestring.ai",
+  "homepage": "https://portal.usestring.ai/docs/mcp/overview",
   "repository": "https://github.com/usestring/string-claude-plugin",
   "license": "MIT",
   "keywords": [
-    "mcp",
-    "model-context-protocol",
-    "mcp-server",
-    "string-ai",
+    "string",
     "web-access",
-    "web-scraping",
     "web-search",
+    "web-fetch",
     "markdown",
-    "crawler",
+    "research",
     "data-extraction",
-    "llm",
-    "ai-agents",
-    "claude",
-    "cursor",
-    "search",
-    "crawling"
+    "sitemap",
+    "mcp"
   ],
   "mcpServers": "./.mcp.json",
   "skills": [
-    "./skills/string-web-access",
-    "./skills/string-fetch",
-    "./skills/string-product-help",
-    "./skills/string-request",
-    "./skills/string-search",
-    "./skills/string-sitemap",
-    "./skills/string-report"
+    "./skills/web-search",
+    "./skills/read-page",
+    "./skills/map-site",
+    "./skills/send-request"
   ]
 }
