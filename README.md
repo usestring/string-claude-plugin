@@ -25,7 +25,7 @@ The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 
 | Tool | What it does |
 | --- | --- |
-| `web_access_search` | Searches the web and returns ranked results with titles, URLs and snippets. Read-only. |
+| `web_access_search` | Searches the web and returns ranked results with titles, URLs and snippets, plus the business or person panel, AI overview, local results and other sections Google shows. Read-only. |
 | `web_access_fetch` | Reads one public URL and returns it as Markdown, the page's raw body, or a JSON envelope with the status and headers. Read-only. |
 | `web_access_sitemap_quote` | Quotes a crawl of one site: estimated pages and cost. Crawls nothing and costs nothing. |
 | `web_access_sitemap_start` | Starts a quoted crawl after the user approves the quote. |
