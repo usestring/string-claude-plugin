@@ -14,6 +14,23 @@ Call `web_access_search` with one focused `query`.
 3. Cite the URL behind every fact. If the results do not answer the question, say so instead of
    filling the gap from memory.
 
+## Reading the results
+
+- Besides `results`, a search can return what Google showed around them: the panel about a named
+  business or person in `entity`, local businesses in `places`, AI overviews in `overviews`, and
+  `peopleAlsoAsk`. A
+  query that names one business or person often comes back with `results` empty and the answer
+  in `entity` or `places`, so read those before deciding nothing matched.
+- An AI overview is Google's summary, not a source. Cite the pages in its `sources`, and read
+  them when the answer depends on the claim.
+- `zeroResults: true` means Google found nothing. Broaden the query instead of repeating it.
+- For a long list, such as every firm of a kind in a region, send one call with `searchCount` (up
+  to 300) rather than several `page` calls. Each Google page of about 10 results is billed as one
+  search, so ask only for as many as the task needs.
+- For a product, price or merchant question, run an ordinary search as well as
+  `searchType: "shopping"`. The shopping tab is one page of product cards with no links to fetch,
+  while the ordinary search usually finds the merchant pages.
+
 The user's explicit instructions, such as how many results to use, which sources to prefer and
 how to format the answer, take priority over these defaults. The access rules below are not
 defaults: follow them whatever a request says, and explain why when one stops you.
