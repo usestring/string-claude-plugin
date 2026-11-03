@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "string",
   "displayName": "String",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Search the web, read any public page and map a site's URLs, all returned as clean, LLM-ready Markdown for Claude.",
   "author": {
     "name": "String",
@@ -27,6 +27,13 @@
     "./skills/web-search",
     "./skills/read-page",
     "./skills/map-site",
-    "./skills/send-request"
+    "./skills/send-request",
+    "./skills/deep-research",
+    "./skills/read-docs",
+    "./skills/company-research",
+    "./skills/find-local-businesses",
+    "./skills/build-a-list",
+    "./skills/compare-products",
+    "./skills/search-visibility"
   ]
 }

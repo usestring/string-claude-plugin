@@ -14,7 +14,14 @@
         "./skills/web-search",
         "./skills/read-page",
         "./skills/map-site",
-        "./skills/send-request"
+        "./skills/send-request",
+        "./skills/deep-research",
+        "./skills/read-docs",
+        "./skills/company-research",
+        "./skills/find-local-businesses",
+        "./skills/build-a-list",
+        "./skills/compare-products",
+        "./skills/search-visibility"
       ]
     }
   ]

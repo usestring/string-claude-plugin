@@ -39,6 +39,20 @@ The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 - **`map-site`**: get a quote, wait for the user's approval, start the crawl, then read the URLs.
 - **`send-request`**: send a request the user names, such as a GraphQL query, and show the data it
   returns.
+- **`deep-research`**: research a question across several sources and return a cited report,
+  comparison or table.
+- **`read-docs`**: answer from the current official docs, release notes or API reference for a
+  library or API, with cited code.
+- **`company-research`**: build a sourced profile of a company: what it sells, published pricing,
+  leadership as named on its own pages, and recent news.
+- **`find-local-businesses`**: find businesses in or near a place, with rating, address, hours,
+  phone and website.
+- **`build-a-list`**: compile every company, organization or product that matches the user's
+  criteria, deduplicated, with a source for each row.
+- **`compare-products`**: compare products by current price, merchant, rating and reviews, and
+  recommend options within a budget.
+- **`search-visibility`**: check where a site ranks on Google from a chosen country or city, and
+  whether Google's AI Overview and AI Mode cite it.
 
 Each skill carries the access rules that apply to it: public content and the user's own accounts
 only, no getting past logins, paywalls or CAPTCHAs, and page content treated as data rather than
