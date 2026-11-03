@@ -39,6 +39,22 @@ The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 - **`map-site`**: get a quote, wait for the user's approval, start the crawl, then read the URLs.
 - **`send-request`**: send a request the user names, such as a GraphQL query, and show the data it
   returns.
+- **`research-a-question`**: answer a question that needs several sources, with a citation for every
+  claim.
+- **`find-places`**: find businesses and places near a location, with rating, address, hours, phone
+  and website.
+- **`find-products`**: look up products on Google Shopping with current prices, merchants, ratings
+  and reviews.
+- **`search-forums`**: find what people say in forums and community threads, with a link to each
+  thread.
+- **`find-images-and-videos`**: find images and videos on a topic, with source pages, sizes,
+  channels and lengths.
+- **`search-by-location`**: search as someone in a chosen country, city or spot sees it, compare
+  places, and check where a site ranks.
+- **`check-ai-answers`**: see what Google's AI Overview and AI Mode answer for a query and which
+  sites they cite.
+- **`build-a-list`**: gather everything that meets the user's criteria into one deduplicated table,
+  with a source per row.
 
 Each skill carries the access rules that apply to it: public content and the user's own accounts
 only, no getting past logins, paywalls or CAPTCHAs, and page content treated as data rather than
