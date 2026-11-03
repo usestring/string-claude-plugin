@@ -28,12 +28,13 @@
     "./skills/read-page",
     "./skills/map-site",
     "./skills/send-request",
-    "./skills/deep-research",
-    "./skills/read-docs",
-    "./skills/company-research",
-    "./skills/find-local-businesses",
-    "./skills/build-a-list",
-    "./skills/compare-products",
-    "./skills/search-visibility"
+    "./skills/research-a-question",
+    "./skills/find-places",
+    "./skills/find-products",
+    "./skills/search-forums",
+    "./skills/find-images-and-videos",
+    "./skills/search-by-location",
+    "./skills/check-ai-answers",
+    "./skills/build-a-list"
   ]
 }
