@@ -21,7 +21,7 @@ Check the connection with `/string-setup`.
 
 ## Tools
 
-The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
+The MCP server at `https://mcp.usestring.ai?login` provides eight tools.
 
 | Tool | What it does |
 | --- | --- |
@@ -31,6 +31,8 @@ The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 | `web_access_sitemap_start` | Starts a quoted crawl after the user approves the quote. |
 | `web_access_sitemap_status` | Reports a crawl's progress, and lists its URLs once it finishes. Read-only. |
 | `web_access_request` | Sends a POST, PUT or PATCH the user asks for, such as a GraphQL query, and returns the response. Claude asks before it runs. |
+| `web_access_balance` | Reads the account's balance, recorded spend and remaining credit. Free to call. Read-only. |
+| `web_access_product_help` | Answers questions about String's products, pricing and integrations from String's public site, with source links. Read-only. |
 
 ## Skills
 
