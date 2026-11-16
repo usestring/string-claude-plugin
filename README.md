@@ -60,7 +60,7 @@ in its [privacy policy](https://usestring.ai/privacy).
 
 ## Links
 
-- [Documentation](https://portal.usestring.ai/docs/mcp/overview)
+- [Documentation](https://docs.usestring.ai/mcp/overview)
 - [Privacy policy](https://usestring.ai/privacy)
 - [Terms of service](https://usestring.ai/terms)
 - [Support](mailto:support@usestring.ai)
