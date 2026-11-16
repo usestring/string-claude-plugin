@@ -8,7 +8,7 @@
     "name": "String",
     "url": "https://usestring.ai"
   },
-  "homepage": "https://portal.usestring.ai/docs/mcp/overview",
+  "homepage": "https://docs.usestring.ai/mcp/overview",
   "repository": "https://github.com/usestring/string-claude-plugin",
   "license": "MIT",
   "keywords": [
