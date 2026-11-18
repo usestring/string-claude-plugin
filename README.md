@@ -48,7 +48,9 @@ instructions.
 
 ## Commands
 
-- **`/string-setup`**: checks that the connection works and the read tools respond.
+- **`/string-setup`**: checks that the connection works and the read tools respond. When your
+  project's code needs `STRING_API_KEY`, it gets a key with one click in your browser and writes it
+  to the project's `.env`.
 - **`/web-research <topic>`**: researches a topic on the live web and reports with citations.
 
 ## What the plugin sends
