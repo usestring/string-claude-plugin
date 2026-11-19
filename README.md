@@ -48,15 +48,22 @@ instructions.
 
 ## Commands
 
-- **`/string-setup`**: checks that the connection works and the read tools respond.
+- **`/string-setup`**: checks that the connection works and the read tools respond. When your
+  project's code needs `STRING_API_KEY`, it gets a key with one click in your browser and writes it
+  to the project's `.env`.
 - **`/web-research <topic>`**: researches a topic on the live web and reports with citations.
 
 ## What the plugin sends
 
-The plugin runs no local code. When Claude calls a tool, the search query, URL, crawl settings or
-request body goes to String's MCP server, which fetches the result and returns it to Claude. Each
-call draws on the connected String account's balance. String's handling of that data is described
-in its [privacy policy](https://usestring.ai/privacy).
+The plugin ships no code of its own: its tools run on String's MCP server. When Claude calls one,
+the search query, URL, crawl settings or request body goes to that server, which fetches the result
+and returns it to Claude. Each call draws on the connected String account's balance. String's
+handling of that data is described in its [privacy policy](https://usestring.ai/privacy).
+
+One step runs on your machine: getting an API key with `/string-setup`. Claude runs it as ordinary
+shell commands from the [onboarding guide](https://usestring.ai/agent-onboarding/SKILL.md), which
+you can see and approve. After you click **Authorize** in your browser, they ask String for the key
+and write it to your project's `.env` without showing it in the chat.
 
 ## Links
 

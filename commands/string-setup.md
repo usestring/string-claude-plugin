@@ -1,6 +1,6 @@
 ---
 name: string-setup
-description: "Check that String is connected and its read tools respond. Usage: /string-setup"
+description: "Check that String is connected and its read tools respond, and get an API key when project code needs one. Usage: /string-setup"
 ---
 
 # String setup check
@@ -15,3 +15,11 @@ description: "Check that String is connected and its read tools respond. Usage: 
    failures in a loop.
 
 Keep it to a few lines. This is a connectivity check, not a demo.
+
+## A key for the project's own code
+
+The sign-in gives Claude the String tools. It puts no key in the project. If the user wants String
+in their own code or scripts and `STRING_API_KEY` is not set, don't ask them to paste a key into
+the chat. Follow "Path E: get credentials" in https://usestring.ai/agent-onboarding/SKILL.md: the
+user clicks **Authorize** once in their browser, and the key goes into the project's `.env`. Never
+print the key.
