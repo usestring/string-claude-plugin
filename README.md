@@ -44,7 +44,8 @@ The MCP server at `https://mcp.usestring.ai?login` provides eight tools.
 
 Each skill carries the access rules that apply to it: public content and the user's own accounts
 only, no getting past logins, paywalls or CAPTCHAs, and page content treated as data rather than
-instructions.
+instructions. The tools take no `solveCaptcha` field: the connection's String key decides whether a
+challenge page is attempted, and a key made at sign-in starts with solving off.
 
 ## Commands
 
