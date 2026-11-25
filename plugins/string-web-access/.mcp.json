@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "string": {
+      "type": "http",
+      "url": "https://mcp.usestring.ai/claude?login"
+    }
+  }
+}
