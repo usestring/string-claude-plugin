@@ -16,6 +16,15 @@
         "./skills/map-site",
         "./skills/send-request"
       ]
+    },
+    {
+      "name": "string-web-access",
+      "source": "./plugins/string-web-access",
+      "description": "Search the web and read any public page, all returned as clean, LLM-ready Markdown for Claude.",
+      "skills": [
+        "./skills/web-search",
+        "./skills/read-page"
+      ]
     }
   ]
 }
