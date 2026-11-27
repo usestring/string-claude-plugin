@@ -14,7 +14,15 @@
         "./skills/web-search",
         "./skills/read-page",
         "./skills/map-site",
-        "./skills/send-request"
+        "./skills/send-request",
+        "./skills/research-a-question",
+        "./skills/find-places",
+        "./skills/find-products",
+        "./skills/search-forums",
+        "./skills/find-images-and-videos",
+        "./skills/search-by-location",
+        "./skills/check-ai-answers",
+        "./skills/build-a-list"
       ]
     }
   ]
