@@ -2,13 +2,13 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "string",
   "displayName": "String",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Search the web, read any public page and map a site's URLs, all returned as clean, LLM-ready Markdown for Claude.",
   "author": {
     "name": "String",
     "url": "https://usestring.ai"
   },
-  "homepage": "https://portal.usestring.ai/docs/mcp/overview",
+  "homepage": "https://docs.usestring.ai/mcp/overview",
   "repository": "https://github.com/usestring/string-claude-plugin",
   "license": "MIT",
   "keywords": [
@@ -27,14 +27,6 @@
     "./skills/web-search",
     "./skills/read-page",
     "./skills/map-site",
-    "./skills/send-request",
-    "./skills/research-a-question",
-    "./skills/find-places",
-    "./skills/find-products",
-    "./skills/search-forums",
-    "./skills/find-images-and-videos",
-    "./skills/search-by-location",
-    "./skills/check-ai-answers",
-    "./skills/build-a-list"
+    "./skills/send-request"
   ]
 }

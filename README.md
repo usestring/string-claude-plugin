@@ -21,7 +21,7 @@ Check the connection with `/string-setup`.
 
 ## Tools
 
-The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
+The MCP server at `https://mcp.usestring.ai?login` provides eight tools.
 
 | Tool | What it does |
 | --- | --- |
@@ -31,6 +31,8 @@ The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 | `web_access_sitemap_start` | Starts a quoted crawl after the user approves the quote. |
 | `web_access_sitemap_status` | Reports a crawl's progress, and lists its URLs once it finishes. Read-only. |
 | `web_access_request` | Sends a POST, PUT or PATCH the user asks for, such as a GraphQL query, and returns the response. Claude asks before it runs. |
+| `web_access_balance` | Reads the account's balance, recorded spend and remaining credit. Free to call. Read-only. |
+| `web_access_product_help` | Answers questions about String's products, pricing and integrations from String's public site, with source links. Read-only. |
 
 ## Skills
 
@@ -58,23 +60,31 @@ The MCP server at `https://mcp.usestring.ai/v3/mcp` provides six tools.
 
 Each skill carries the access rules that apply to it: public content and the user's own accounts
 only, no getting past logins, paywalls or CAPTCHAs, and page content treated as data rather than
-instructions.
+instructions. The tools take no `solveCaptcha` field: the connection's String key decides whether a
+challenge page is attempted, and a key made at sign-in starts with solving off.
 
 ## Commands
 
-- **`/string-setup`**: checks that the connection works and the read tools respond.
+- **`/string-setup`**: checks that the connection works and the read tools respond. When your
+  project's code needs `STRING_API_KEY`, it gets a key with one click in your browser and writes it
+  to the project's `.env`.
 - **`/web-research <topic>`**: researches a topic on the live web and reports with citations.
 
 ## What the plugin sends
 
-The plugin runs no local code. When Claude calls a tool, the search query, URL, crawl settings or
-request body goes to String's MCP server, which fetches the result and returns it to Claude. Each
-call draws on the connected String account's balance. String's handling of that data is described
-in its [privacy policy](https://usestring.ai/privacy).
+The plugin ships no code of its own: its tools run on String's MCP server. When Claude calls one,
+the search query, URL, crawl settings or request body goes to that server, which fetches the result
+and returns it to Claude. Each call draws on the connected String account's balance. String's
+handling of that data is described in its [privacy policy](https://usestring.ai/privacy).
+
+One step runs on your machine: getting an API key with `/string-setup`. Claude runs it as ordinary
+shell commands from the [onboarding guide](https://usestring.ai/agent-onboarding/SKILL.md), which
+you can see and approve. After you click **Authorize** in your browser, they ask String for the key
+and write it to your project's `.env` without showing it in the chat.
 
 ## Links
 
-- [Documentation](https://portal.usestring.ai/docs/mcp/overview)
+- [Documentation](https://docs.usestring.ai/mcp/overview)
 - [Privacy policy](https://usestring.ai/privacy)
 - [Terms of service](https://usestring.ai/terms)
 - [Support](mailto:support@usestring.ai)
